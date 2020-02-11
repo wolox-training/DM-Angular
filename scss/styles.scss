@@ -9,13 +9,22 @@
 }
 
 .container {
+  box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
   display: flex;
+  height: 416px;
+  padding: 24px;
+  width: 900px;
+}
+
+.book-info {
+  padding: 30px 24px 30px 51px;
+  width: 100%;
 }
 
 .book-title {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 64px;
+  padding-bottom: 12px;
 
   .book-genre {
     @extend %gray-text;
@@ -24,6 +33,15 @@
     font-size: 24px;
     font-weight: bold;
   }
+}
+
+.book-divider {
+  border: 2px solid $earls-green;
+  margin: 0;
+}
+
+.book-description {
+  padding-top: 36px;
 }
 
 .book-attribute {
@@ -39,6 +57,5 @@
 }
 
 .book-image {
-  margin-right: 52px;
   width: 261px;
 }
