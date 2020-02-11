@@ -8,6 +8,10 @@
   color: $gray;
 }
 
+.container {
+  display: flex;
+}
+
 .book-title {
   font-size: 32px;
   font-weight: bold;
@@ -32,4 +36,9 @@
   .reset-strong {
     color: $black;
   }
+}
+
+.book-image {
+  margin-right: 52px;
+  width: 261px;
 }
