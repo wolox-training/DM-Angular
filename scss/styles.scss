@@ -52,6 +52,23 @@
   }
 }
 
+.image-container {
+  position: relative;
+
+  &::before {
+    background: url("/src/img/badge.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    height: 100px;
+    position: absolute;
+    right: calc(-94.53px/2);
+    top: -10px;
+    transform: rotate(15deg);
+    width: 94.53px;
+  }
+}
+
 .book-image {
   width: 261px;
 }
