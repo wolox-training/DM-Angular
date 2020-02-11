@@ -11,7 +11,6 @@
 .container {
   box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
   display: flex;
-  height: 416px;
   padding: 24px;
   width: 900px;
 }
@@ -22,9 +21,11 @@
 }
 
 .book-title {
+  border-bottom: 4px solid $earls-green;
   font-size: 32px;
   font-weight: bold;
   padding-bottom: 12px;
+  width: 100%;
 
   .book-genre {
     @extend %gray-text;
@@ -33,11 +34,6 @@
     font-size: 24px;
     font-weight: bold;
   }
-}
-
-.book-divider {
-  border: 2px solid $earls-green;
-  margin: 0;
 }
 
 .book-description {
