@@ -1,0 +1,35 @@
+@import "colors";
+@import "variables";
+
+.books-main {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: $navbar-height;
+  padding: 36px 233px;
+}
+
+.book-card {
+  background-color: $white;
+  box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
+  margin: 18px;
+  padding: 28px;
+  width: 198px;
+}
+
+.card-cover {
+  height: 200px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  margin-top: 8px;
+}
+
+.card-autor {
+  color: $gray;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 8px;
+}
