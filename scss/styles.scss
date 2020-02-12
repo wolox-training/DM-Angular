@@ -8,7 +8,31 @@
   color: $gray;
 }
 
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.back-button {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  margin: 46px 0 108px;
+
+  &::before {
+    content: url(/src/img/back-arrow-20.png);
+    height: 20px;
+    margin-right: 12px;
+    width: 20px;
+  }
+}
+
+.card-container {
   box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
   display: flex;
   padding: 24px;
