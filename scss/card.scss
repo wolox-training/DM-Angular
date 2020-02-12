@@ -1,17 +1,16 @@
 @import "colors";
+@import "variables";
 
 .books-main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-top: 70px;
+  margin-top: $navbar-height;
   padding: 36px 233px;
 }
 
 .book-card {
   background-color: $white;
   box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
-  height: 300px;
   margin: 18px;
   padding: 28px;
   width: 198px;
