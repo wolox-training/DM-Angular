@@ -1,4 +1,5 @@
 @import "colors";
+@import "variables";
 
 * {
   font-family: "Roboto", sans-serif;
@@ -77,17 +78,64 @@
 }
 
 .image-container {
+  max-width: 261px;
   position: relative;
+  width: 100%;
 
   &::before {
-    bottom: 55px;
     content: url(/src/img/badge.png);
-    left: 57px;
     position: absolute;
-    transform: rotate(15deg) scale(0.2);
+    right: -160px;
+    top: $badge-top;
+    transform: rotate(15deg) scale($badge-scale);
   }
 }
 
 .book-image {
-  width: 261px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 35px 20px;
+    width: 100%;
+  }
+
+  .card-container {
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+    width: 100%;
+  }
+
+  .image-container {
+    &::before {
+      top: calc(#{$badge-top} * 1.07);
+      transform: rotate(15deg) scale(calc(#{$badge-scale} * 0.7));
+    }
+  }
+
+  .book-info {
+    padding: 20px 0 0;
+    width: 100%;
+  }
+
+  .book-title {
+    font-size: 26px;
+  }
+
+  .book-description {
+    padding-top: 25px;
+  }
+
+  .book-attribute {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+
+  .back-button {
+    margin: 20px 0 0;
+  }
 }
