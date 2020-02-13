@@ -1,0 +1,63 @@
+@import "colors";
+
+.full-height {
+  height: 100%;
+}
+
+%flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.login-main {
+  @extend %flex-center;
+}
+
+.login-container {
+  background-color: $wild-sand;
+  border-top: 8px solid $cerulean;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  max-height: 400px;
+  max-width: 300px;
+  padding: 20px 24px 24px;
+  width: 100%;
+}
+
+.login-wolox-image {
+  align-self: center;
+  height: 70px;
+}
+
+.login-label {
+  font-size: 16px;
+}
+
+.login-input {
+  border-radius: 5px;
+  height: 32px;
+}
+
+%login-button {
+  border-radius: 5px;
+  height: 32px;
+}
+
+.primary-button {
+  @extend %login-button;
+
+  background-color: $earls-green;
+  color: $white;
+}
+
+.secondary-button {
+  @extend %login-button;
+  @extend %flex-center;
+
+  background-color: $wild-sand;
+  border: 2px solid $earls-green;
+  color: $earls-green;
+}
