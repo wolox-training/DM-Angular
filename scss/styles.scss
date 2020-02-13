@@ -83,10 +83,10 @@
   width: 100%;
 
   &::before {
-    bottom: 55px;
     content: url(/src/img/badge.png);
-    left: 57px;
     position: absolute;
+    right: -160px;
+    top: $badge-top;
     transform: rotate(15deg) scale($badge-scale);
   }
 }
@@ -112,7 +112,7 @@
 
   .image-container {
     &::before {
-      bottom: calc(#{$badge-bottom} * 1.3);
+      top: calc(#{$badge-top} * 1.07);
       transform: rotate(15deg) scale(calc(#{$badge-scale} * 0.7));
     }
   }
