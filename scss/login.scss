@@ -1,0 +1,58 @@
+@import "colors";
+
+.full-height {
+  height: 100%;
+}
+
+.login-main {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.login-container {
+  background-color: $wild-sand;
+  border-top: 8px solid $cerulean;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-between;
+  padding: 20px 24px 24px;
+  width: 300px;
+}
+
+.login-wolox-image {
+  align-self: center;
+  height: 70px;
+}
+
+.login-label {
+  font-size: 16px;
+}
+
+.login-input {
+  border-radius: 5px;
+  height: 32px;
+}
+
+.green-button {
+  align-items: center;
+  background-color: $earls-green;
+  border-radius: 5px;
+  color: $white;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.border-green-button {
+  background-color: $wild-sand;
+  border: 2px solid $earls-green;
+  border-radius: 5px;
+  color: $earls-green;
+  height: 32px;
+}
