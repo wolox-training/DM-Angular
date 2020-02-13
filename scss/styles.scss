@@ -16,13 +16,14 @@
 .container {
   display: flex;
   flex-direction: column;
+  padding-top: 46px;
 }
 
 .back-button {
   align-items: center;
   display: flex;
   font-size: 20px;
-  margin: 46px 0 108px;
+  margin-bottom: 108px;
 
   &::before {
     content: url(/src/img/back-arrow-20.png);
