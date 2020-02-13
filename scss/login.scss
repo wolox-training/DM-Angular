@@ -4,10 +4,14 @@
   height: 100%;
 }
 
-.login-main {
+%flex-center {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.login-main {
+  @extend %flex-center;
 }
 
 .login-container {
@@ -15,10 +19,12 @@
   border-top: 8px solid $cerulean;
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 100%;
   justify-content: space-between;
+  max-height: 400px;
+  max-width: 300px;
   padding: 20px 24px 24px;
-  width: 300px;
+  width: 100%;
 }
 
 .login-wolox-image {
@@ -35,24 +41,23 @@
   height: 32px;
 }
 
-.green-button {
-  align-items: center;
-  background-color: $earls-green;
+%login-button {
   border-radius: 5px;
-  color: $white;
-  display: flex;
   height: 32px;
-  justify-content: center;
-
-  &:hover {
-    color: $white;
-  }
 }
 
-.border-green-button {
+.primary-button {
+  @extend %login-button;
+
+  background-color: $earls-green;
+  color: $white;
+}
+
+.secondary-button {
+  @extend %login-button;
+  @extend %flex-center;
+
   background-color: $wild-sand;
   border: 2px solid $earls-green;
-  border-radius: 5px;
   color: $earls-green;
-  height: 32px;
 }
