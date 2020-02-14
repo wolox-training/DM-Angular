@@ -5,79 +5,63 @@
   font-family: "Roboto", sans-serif;
 }
 
-%gray-text {
-  color: $gray;
+.full-height {
+  height: 100%;
 }
 
 .main-container {
-  display: flex;
-  justify-content: center;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  padding-top: 46px;
+  background-color: $wild-sand;
+  display: grid;
+  grid-template: 1fr 569px 1fr / 1fr 853px 1fr;
+  grid-template-areas: ". header ."
+  ". main ."
+  ". . .";
 }
 
 .back-button {
-  align-items: center;
-  display: flex;
+  align-self: center;
+  display: grid;
   font-size: 20px;
-  margin-bottom: 108px;
+  grid-area: header;
+  grid-template-columns: 30px 1fr;
 
   &::before {
     content: url(/src/img/back-arrow-20.png);
-    height: 20px;
-    margin-right: 12px;
   }
 }
 
 .card-container {
+  background-color: $white;
   box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
-  display: flex;
-  padding: 24px;
-  width: 900px;
-}
-
-.book-info {
-  flex: 1;
-  padding: 30px 24px 30px 51px;
+  display: grid;
+  grid-area: main;
+  grid-template: 1fr 1fr 80% / 1fr 60%;
+  grid-template-areas: "title title"
+  "genre genre"
+  "cover description";
+  padding: 32px;
 }
 
 .book-title {
-  border-bottom: 4px solid $earls-green;
+  align-self: end;
   font-size: 32px;
   font-weight: bold;
-  padding-bottom: 12px;
-  width: 100%;
-
-  .book-genre {
-    @extend %gray-text;
-
-    display: inline;
-    font-size: 24px;
-    font-weight: bold;
-  }
+  grid-area: title;
+  justify-self: center;
 }
 
-.book-description {
-  padding-top: 36px;
-}
-
-.book-attribute {
-  @extend %gray-text;
-
-  display: block;
-  font-size: 20px;
-  margin-bottom: 38px;
-
-  .reset-strong {
-    color: $black;
-  }
+.book-genre {
+  color: $gray;
+  font-size: 24px;
+  font-weight: bold;
+  grid-area: genre;
+  justify-self: center;
 }
 
 .image-container {
+  align-self: center;
+  grid-area: cover;
+  justify-self: center;
   max-width: 261px;
   position: relative;
   width: 100%;
@@ -95,47 +79,77 @@
   width: 100%;
 }
 
+.book-description {
+  align-self: center;
+  grid-area: description;
+}
+
+.book-attribute {
+  color: $gray;
+  display: block;
+  font-size: 24px;
+  margin-bottom: 38px;
+}
+
+.reset-strong {
+  color: $black;
+}
+
 @media only screen and (max-width: 1024px) {
-  .container {
-    align-items: center;
-    flex-direction: column-reverse;
-    padding: 35px 20px;
-    width: 100%;
+  .main-container {
+    grid-template: 90% 1fr / 1fr;
+    grid-template-areas: "main"
+    "header";
+  }
+
+  .back-button {
+    justify-self: center;
   }
 
   .card-container {
-    align-items: center;
-    flex-direction: column;
-    padding-top: 50px;
-    width: 100%;
+    grid-template: 1fr 50% 1fr 30% / 1fr;
+    grid-template-areas: "title"
+    "cover"
+    "genre"
+    "description";
+    margin: 30px 20px 0;
   }
 
   .image-container {
+    height: 100%;
+    width: auto;
+
     &::before {
       top: calc(#{$badge-top} * 1.07);
       transform: rotate(15deg) scale(calc(#{$badge-scale} * 0.7));
     }
   }
 
-  .book-info {
-    padding: 20px 0 0;
-    width: 100%;
+  .book-image {
+    height: 100%;
+    width: auto;
   }
 
   .book-title {
-    font-size: 26px;
+    align-self: start;
+    font-size: 24px;
   }
 
-  .book-description {
-    padding-top: 25px;
+  .book-genre {
+    align-self: center;
+    font-size: 16px;
   }
 
   .book-attribute {
-    font-size: 15px;
-    margin-bottom: 22px;
+    align-self: center;
+    font-size: 14px;
+    margin-bottom: 18px;
   }
 
-  .back-button {
-    margin: 20px 0 0;
+  .book-description {
+    border-top: 4px solid $earls-green;
+    display: grid;
+    height: 100%;
+    margin-bottom: 0;
   }
 }
