@@ -1,0 +1,7 @@
+<div class=form-container>
+    <img src="../../assets/LogoWolox.png" alt="" class="login-wolox-image">
+    <ng-content></ng-content>
+    <button type="submit" class="primary-button" [disabled]="!isValid" [ngClass]="{'disable': !isValid}" (click)="submitForm($event)">Sign Up</button>
+    <hr class="divider">
+    <a href="#" class="secondary-button">Login</a>
+</div>
