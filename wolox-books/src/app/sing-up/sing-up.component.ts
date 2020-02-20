@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SPANISH_FORM_ERROR_MESSAGES, PATTERNS } from '../utils/constants';
-import { MustMatch } from '../utils/validators';
+import { SPANISH_FORM_ERROR_MESSAGES } from '../utils/constants';
+import { MustMatch, patterns } from '../utils/validators';
 
 @Component({
   selector: 'app-sing-up',
@@ -12,6 +12,7 @@ export class SingUpComponent implements OnInit {
 
   form: FormGroup;
   public ErrorMessage = SPANISH_FORM_ERROR_MESSAGES;
+  public Patterns = patterns;
 
   constructor(
     private formBuilder: FormBuilder
@@ -26,9 +27,9 @@ export class SingUpComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       surname: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern(PATTERNS.EMAIL)]],
-      password: ['', [Validators.required, Validators.pattern(PATTERNS.ONE_DIGIT_ONE_LOWERCASE_ONE_UPPERCASE)]],
-      confirmPassword: ['', [Validators.required, Validators.pattern(PATTERNS.ONE_DIGIT_ONE_LOWERCASE_ONE_UPPERCASE)]]
+      email: ['', [Validators.required, Validators.pattern(patterns.email.regex)]],
+      password: ['', [Validators.required, Validators.pattern(patterns.password.regex)]],
+      confirmPassword: ['', [Validators.required, Validators.pattern(patterns.password.regex)]]
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });

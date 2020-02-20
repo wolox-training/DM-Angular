@@ -12,7 +12,18 @@ export function MustMatch(controlName: string, matchingControlName: string) {
         if (control.value !== matchingControl.value) {
           matchingControl.setErrors({ mustMatch: true });
         } else {
-            matchingControl.setErrors(null);
+          matchingControl.setErrors(null);
         }
-    }
+    };
 }
+
+export const patterns = {
+    email: {
+        regex: '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$',
+        errorMessage: 'No cumple el formato de email (ejemplo@dominio.co)'
+    },
+    password: {
+        regex: '^(?=.*[a-z])(?=.*?[A-Z])(?=.*?\\d).*$',
+        errorMessage: 'Es necesario minimo un número, una minuscúla y una mayuscúla'
+    }
+};
