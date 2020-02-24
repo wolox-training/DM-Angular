@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SPANISH_FORM_ERROR_MESSAGES } from '../../utils/constants';
 import { MustMatch, patterns } from '../../utils/validators';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sing-up',
@@ -15,7 +16,8 @@ export class SingUpComponent implements OnInit {
   public Patterns = patterns;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UserService
   ) {
     this.buildForm();
   }
@@ -37,15 +39,18 @@ export class SingUpComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid) {
-      console.log({
-        user: {
-          email: this.form.get('email').value,
-          password: this.form.get('password').value,
-          password_confirmation: this.form.get('confirmPassword').value,
-          first_name: this.form.get('name').value,
-          last_name: this.form.get('surname').value,
-          locale: 'en'
-        }
+      this.userService.createUser({
+        email: this.form.get('email').value,
+        password: this.form.get('password').value,
+        password_confirmation: this.form.get('confirmPassword').value,
+        first_name: this.form.get('name').value,
+        last_name: this.form.get('surname').value,
+        locale: 'en'
+      }).subscribe(res => {
+        console.log(res);
+      },
+      error => {
+        alert(error);
       });
     }
   }
