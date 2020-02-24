@@ -1,6 +1,6 @@
 <main class="main-container">
   <form [formGroup]="form" class="form-container">
-    <app-form (formSubmitted)="submitForm()" [isValid]="form.valid">
+    <app-form (formSubmitted)="submitForm()" [isValid]="form.valid" redirect="../login" submitLabel="Sign Up" redirectLabel="Login">
       <app-input label="Nombre" name="name" [form]="form"></app-input>
       <app-input
         label="Apellido"

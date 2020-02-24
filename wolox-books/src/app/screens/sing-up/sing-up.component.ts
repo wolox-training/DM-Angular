@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SPANISH_FORM_ERROR_MESSAGES } from '../../utils/constants';
 import { MustMatch, patterns } from '../../utils/validators';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sing-up',
@@ -17,7 +18,8 @@ export class SingUpComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
     this.buildForm();
   }
@@ -46,8 +48,8 @@ export class SingUpComponent implements OnInit {
         first_name: this.form.get('name').value,
         last_name: this.form.get('surname').value,
         locale: 'en'
-      }).subscribe(res => {
-        console.log(res);
+      }).subscribe(() => {
+        this.router.navigate(['login']);
       },
       error => {
         alert(error);

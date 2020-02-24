@@ -8,6 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class FormComponent implements OnInit {
 
   @Input() isValid: boolean;
+  @Input() redirect: string;
+  @Input() redirectLabel: string;
+  @Input() submitLabel: string;
   @Output() formSubmitted: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
