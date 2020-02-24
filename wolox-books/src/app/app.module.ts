@@ -4,9 +4,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormComponent } from './form/form.component';
-import { SingUpComponent } from './sing-up/sing-up.component';
-import { InputComponent } from './input/input.component';
+import { FormComponent } from './components/form/form.component';
+import { SingUpComponent } from './screens/sing-up/sing-up.component';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [

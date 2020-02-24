@@ -1,9 +1,0 @@
-<div class="input-container">
-    <label class="login-label" for="{{name}}">{{ label }}</label>
-    <input class="login-input" id="{{name}}" type="{{type}}" [formControl]="field">
-    <div *ngIf="field.errors && (field.dirty || field.touched)">
-        <p class="input-error" *ngIf="field.hasError('required')">Este campo es requerido</p>
-        <p class="input-error" *ngIf="field.hasError('pattern')">{{ errorMessage }}</p>
-        <p class="input-error" *ngIf="field.hasError(customErrorName)">{{ customErrorMessage}}</p>
-    </div>
-</div>
