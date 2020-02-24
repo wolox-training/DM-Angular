@@ -9,6 +9,8 @@ import { FormComponent } from './components/form/form.component';
 import { SingUpComponent } from './screens/sing-up/sing-up.component';
 import { InputComponent } from './components/input/input.component';
 import { LoginComponent } from './screens/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './screens/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LoginComponent } from './screens/login/login.component';
     FormComponent,
     SingUpComponent,
     InputComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
