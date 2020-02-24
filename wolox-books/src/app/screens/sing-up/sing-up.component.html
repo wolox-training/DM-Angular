@@ -1,0 +1,34 @@
+<main class="main-container">
+  <form [formGroup]="form" class="form-container">
+    <app-form (formSubmitted)="submitForm()" [isValid]="form.valid">
+      <app-input label="Nombre" name="name" [form]="form"></app-input>
+      <app-input
+        label="Apellido"
+        name="surname"
+        [form]="form"
+      ></app-input>
+      <app-input
+        label="Email"
+        name="email"
+        [form]="form"
+        [errorMessage]="Patterns.email.errorMessage"
+      ></app-input>
+      <app-input
+        label="Password"
+        name="password"
+        [form]="form"
+        type="password"
+        [errorMessage]="Patterns.password.errorMessage"
+      ></app-input>
+      <app-input
+        label="Confirmación de Password"
+        name="confirmPassword"
+        [form]="form"
+        type="password"
+        [errorMessage]="Patterns.password.errorMessage"
+        customErrorName="mustMatch"
+        [customErrorMessage]="ErrorMessage.PASSWORD_MUST_MATCH"
+      ></app-input>
+    </app-form>
+  </form>
+</main>
