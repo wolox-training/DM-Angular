@@ -1,1 +1,15 @@
-<p>login works!</p>
+<main class="main-container">
+    <form [formGroup]="form" class="form-container">
+      <app-form (formSubmitted)="submitForm()" [isValid]="form.valid" redirect="../sign-up" submitLabel="Login" redirectLabel="Sign Up">
+        <app-input label="Email" name="email" [form]="form"></app-input>
+        <app-input
+          label="Password"
+          name="password"
+          [form]="form"
+          type="password"
+          [errorMessage]="Patterns.password.errorMessage"
+        ></app-input>
+      </app-form>
+    </form>
+  </main>
+  
