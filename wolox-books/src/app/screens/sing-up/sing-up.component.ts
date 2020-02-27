@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SPANISH_FORM_ERROR_MESSAGES } from '../utils/constants';
-import { MustMatch, patterns } from '../utils/validators';
+import { SPANISH_FORM_ERROR_MESSAGES } from '../../utils/constants';
+import { MustMatch, patterns } from '../../utils/validators';
 
 @Component({
   selector: 'app-sing-up',

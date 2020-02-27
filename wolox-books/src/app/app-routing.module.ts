@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SingUpComponent } from './sing-up/sing-up.component';
+import { SingUpComponent } from './screens/sing-up/sing-up.component';
 
 
 const routes: Routes = [
