@@ -18,17 +18,24 @@ export class AuthService {
 
   login(session): Observable<any> {
     return this.http.post(`${this.ROOT_URL}/api/v1/users/sessions`, { session })
-    .pipe(
-      catchError((error: HttpErrorResponse) => {
-        return throwError('Usuario o contraseña no válidos');
-      }),
-      tap((response: any) => {
-        localStorage.setItem('access_token', response.access_token);
-      })
-    );
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          return throwError('Usuario o contraseña no válidos');
+        }),
+        tap((response: any) => {
+          localStorage.setItem('access_token', response.access_token);
+        })
+      );
   }
 
   logout(): void {
     localStorage.removeItem('access_token');
+  }
+
+  isAuthenticated(): boolean {
+    if (localStorage.getItem('access_token')) {
+      return true;
+    }
+    return false;
   }
 }

@@ -6,11 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './components/form/form.component';
-import { SingUpComponent } from './screens/sing-up/sing-up.component';
+import { SingUpComponent } from './screens/unauth/components/sing-up/sing-up.component';
 import { InputComponent } from './components/input/input.component';
-import { LoginComponent } from './screens/login/login.component';
+import { LoginComponent } from './screens/unauth/components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './screens/home/home.component';
+import { HomeComponent } from './screens/auth/home/home.component';
 
 @NgModule({
   declarations: [
