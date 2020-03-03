@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,10 @@ import { InputComponent } from './components/input/input.component';
 import { LoginComponent } from './screens/unauth/components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './screens/auth/home/home.component';
+import { MiniCardComponent } from './components/mini-card/mini-card.component';
+import { BookListComponent } from './screens/auth/book-list/book-list.component';
+import { TokenInterceptorService } from './services/token.interceptor';
+import { ToCamelCaseInterceptor } from './services/to-camel-case.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,9 @@ import { HomeComponent } from './screens/auth/home/home.component';
     InputComponent,
     LoginComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    MiniCardComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,18 @@ import { HomeComponent } from './screens/auth/home/home.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ToCamelCaseInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
