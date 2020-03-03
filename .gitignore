@@ -8,3 +8,6 @@
 
 ## System ##
 .DS_Store
+
+## Environments ##
+/wolox-books/src/environments/*
