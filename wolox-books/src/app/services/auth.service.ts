@@ -12,9 +12,7 @@ export class AuthService {
 
   readonly ROOT_URL = environment.BACKEND_URL;
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   login(session): Observable<any> {
     return this.http.post(`${this.ROOT_URL}/api/v1/users/sessions`, { session })
