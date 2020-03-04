@@ -10,7 +10,6 @@ export class UnauthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(): boolean {
-    console.log(this.authService.isAuthenticated())
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/books']);
       return false;

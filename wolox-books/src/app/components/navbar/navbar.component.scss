@@ -5,7 +5,7 @@
   align-items: center;
   background-color: $white;
   border-top: 6px solid $cerulean;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px 0 $black-half-opacity;
   display: flex;
   height: $navbar-height;
   justify-content: space-around;
