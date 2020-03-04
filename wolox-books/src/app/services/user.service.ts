@@ -20,11 +20,21 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
+  loginUser(session): Observable<any> {
+    return this.http.post(`${this.ROOT_URL}/api/v1/users/sessions`, { session })
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.error(error);
-    if (error.status === 422) {
-      return throwError('No es posible procesar el formulario');
+    switch (error.status) {
+      case 422: return throwError('No es posible procesar el formulario');
+      case 401:
+        if (error.statusText === 'Unauthorized') {
+          return throwError('Usuario o contraseña no válidos');
+        }
+        return throwError('No esta autorizado para realizar esta acción');
+      default: return throwError('¡Sucedio un error inesperado!');
     }
-    return throwError('¡Sucedio un error inesperado!');
   }
 }
