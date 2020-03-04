@@ -1,0 +1,15 @@
+<main class="main-container full-height">
+  <a [routerLink]="['/books']" routerLinkActive="router-link-active" class="back-button">Atrás</a>
+  <div class="card-container" *ngIf="$book | async as book">
+    <h1 class="book-title">{{book.title}}</h1>
+    <p class="book-genre">({{book.genre}})</p>
+    <div class="image-container">
+      <img [src]="book.imageUrl || '/assets/book-cover.png'" alt="Book cover" class="book-image">
+    </div>
+    <div class="book-description">
+      <p class="book-attribute"><strong class="reset-strong">Autor del libro: </strong>{{book.author}}</p>
+      <p class="book-attribute"><strong class="reset-strong">Editorial: </strong>{{book.publisher}}</p>
+      <p class="book-attribute"><strong class="reset-strong">Año de publicación: </strong>{{book.year}}</p>
+    </div>
+  </div>
+</main>

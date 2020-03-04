@@ -1,0 +1,155 @@
+@import '../../../../../../colors.scss';
+@import '../../../../../../variables.scss';
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.full-height {
+  height: calc(100vh - #{$navbar-height});
+}
+
+.main-container {
+  background-color: $wild-sand;
+  display: grid;
+  grid-template: 1fr 569px 1fr / 1fr 853px 1fr;
+  grid-template-areas: '. header .'
+  '. main .'
+  '. . .';
+}
+
+.back-button {
+  align-self: center;
+  display: grid;
+  font-size: 20px;
+  grid-area: header;
+  grid-template-columns: 30px 1fr;
+
+  &::before {
+    content: url(/assets/back-arrow-20.png);
+  }
+}
+
+.card-container {
+  background-color: $white;
+  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-area: main;
+  grid-template: 1fr 1fr 80% / 1fr 60%;
+  grid-template-areas: 'title title'
+  'genre genre'
+  'cover description';
+  padding: 32px;
+}
+
+.book-title {
+  align-self: end;
+  font-size: 32px;
+  font-weight: bold;
+  grid-area: title;
+  justify-self: center;
+}
+
+.book-genre {
+  color: $gray;
+  font-size: 24px;
+  font-weight: bold;
+  grid-area: genre;
+  justify-self: center;
+}
+
+.image-container {
+  align-self: center;
+  grid-area: cover;
+  justify-self: center;
+  max-width: 261px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: url(/assets/badge.png);
+    position: absolute;
+    right: -160px;
+    top: $badge-top;
+    transform: rotate(15deg) scale($badge-scale);
+  }
+}
+
+.book-image {
+  width: 100%;
+}
+
+.book-description {
+  align-self: center;
+  grid-area: description;
+}
+
+.book-attribute {
+  color: $gray;
+  display: block;
+  font-size: 24px;
+  margin-bottom: 38px;
+}
+
+.reset-strong {
+  color: $black;
+}
+
+@media only screen and (max-width: 1024px) {
+  .main-container {
+    grid-template: 90% 1fr / 1fr;
+    grid-template-areas: 'main'
+    'header';
+  }
+
+  .back-button {
+    justify-self: center;
+  }
+
+  .card-container {
+    grid-template: 1fr 50% 1fr 30% / 1fr;
+    grid-template-areas: 'title'
+    'cover'
+    'genre'
+    'description';
+    margin: 30px 20px 0;
+  }
+
+  .image-container {
+    height: 100%;
+    width: auto;
+
+    &::before {
+      top: calc(#{$badge-top} * 1.07);
+      transform: rotate(15deg) scale(calc(#{$badge-scale} * 0.7));
+    }
+  }
+
+  .book-image {
+    height: 100%;
+    width: auto;
+  }
+
+  .book-title {
+    align-self: start;
+    font-size: 24px;
+  }
+
+  .book-genre {
+    align-self: center;
+    font-size: 16px;
+  }
+
+  .book-attribute {
+    align-self: center;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .book-description {
+    border-top: 4px solid $earls-green;
+    display: grid;
+    height: 100%;
+    margin-bottom: 0;
+  }
+}

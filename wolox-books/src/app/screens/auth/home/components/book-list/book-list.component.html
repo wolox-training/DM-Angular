@@ -4,7 +4,7 @@
   </div>
   <div class="books-main" *ngIf="$books | async as books">
     <mini-card *ngFor="let book of books | filter: filterField" [title]="book.title" [publisher]="book.publisher"
-      [imageURL]="book.imageUrl">
+      [imageURL]="book.imageUrl" (cardClicked)="searchById(book.id)">
     </mini-card>
   </div>
 </div>

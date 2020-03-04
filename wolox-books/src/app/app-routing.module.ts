@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SingUpComponent } from './screens/unauth/components/sing-up/sing-up.component';
 import { LoginComponent } from './screens/unauth/components/login/login.component';
-import { HomeComponent } from './screens/auth/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UnauthGuard } from './guards/unauth.guard';
+import { HomeComponent } from './screens/auth/home/home.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,13 @@ const routes: Routes = [
   {
     path: 'books',
     canActivate: [AuthGuard],
-    component: HomeComponent
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./screens/auth/home/home.module').then(m => m.HomeModule)
+      }
+    ]
   },
   {
     path: 'login',
