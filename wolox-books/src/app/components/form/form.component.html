@@ -1,7 +1,8 @@
 <div class=form-container>
     <img src="../../assets/LogoWolox.png" alt="" class="login-wolox-image">
     <ng-content></ng-content>
-    <button type="submit" class="primary-button" [disabled]="!isValid" [ngClass]="{'disable': !isValid}" (click)="submitForm($event)">{{submitLabel}}</button>
+    <button type="submit" class="primary-button" [disabled]="!isValid" [ngClass]="{'disable': !isValid}"
+        (click)="submitForm($event)">{{submitLabel}}</button>
     <hr class="divider">
-    <a routerLink="{{redirect}}" class="secondary-button">{{redirectLabel}}</a>
+    <a [routerLink]="redirect" class="secondary-button">{{redirectLabel}}</a>
 </div>
