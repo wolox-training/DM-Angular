@@ -8,6 +8,7 @@
   height: 350px;
   margin: 18px;
   padding: 28px;
+  position: relative;
   transition: transform 0.5s;
   width: 198px;
 
@@ -41,4 +42,23 @@
   font-size: 14px;
   line-height: 18px;
   margin-top: 8px;
+}
+
+.add {
+  &::before {
+    bottom: 0;
+    content: url(/assets/add.png);
+    position: absolute;
+    right: 10px;
+    transition: transform 200ms ease-in-out;
+  }
+
+  &:hover {
+    background-color: $gray;
+    border-radius: 50%;
+
+    &::before {
+      transform: scale(1.2);
+    }
+  }
 }

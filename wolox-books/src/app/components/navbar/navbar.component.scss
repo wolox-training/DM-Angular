@@ -19,9 +19,31 @@
   height: 100%;
 }
 
+.left-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .logout-button {
   font-size: 18px;
   height: 18px;
   line-height: 21px;
   width: 63px;
+}
+
+.shopery-cart {
+  margin-right: 32px;
+  position: relative;
+}
+
+.shopery-items {
+  background-color: $cerulean;
+  border-radius: 50%;
+  color: $white;
+  font-size: 10px;
+  height: 15px;
+  left: 15px;
+  position: absolute;
+  text-align: center;
+  width: 15px;
 }

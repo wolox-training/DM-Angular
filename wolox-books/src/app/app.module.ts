@@ -13,6 +13,7 @@ import { TokenInterceptorService } from './services/token.interceptor';
 import { ToCamelCaseInterceptor } from './services/to-camel-case.interceptor';
 import { HomeComponent } from './screens/auth/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       provide: HTTP_INTERCEPTORS,
       useClass: ToCamelCaseInterceptor,
       multi: true
-    }
+    },
+    CartService
   ],
   bootstrap: [AppComponent]
 })

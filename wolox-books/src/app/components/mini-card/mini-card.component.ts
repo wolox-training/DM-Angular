@@ -11,10 +11,16 @@ export class MiniCardComponent {
   @Input() title: string;
   @Input() publisher: string;
   @Output() cardClicked: EventEmitter<void> = new EventEmitter();
+  @Output() addClicked: EventEmitter<void> = new EventEmitter();
 
   defaultImageURL = '/assets/book-cover.png';
 
   clickCard() {
     this.cardClicked.emit();
+  }
+
+  clickAdd(event: Event) {
+    event.stopPropagation();
+    this.addClicked.emit();
   }
 }
