@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SPANISH_FORM_ERROR_MESSAGES } from '../../utils/constants';
-import { MustMatch, patterns } from '../../utils/validators';
+import { SPANISH_FORM_ERROR_MESSAGES } from '../../../../utils/constants';
+import { MustMatch, patterns } from '../../../../utils/validators';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 
@@ -51,9 +51,9 @@ export class SingUpComponent implements OnInit {
       }).subscribe(() => {
         this.router.navigate(['login']);
       },
-      error => {
-        alert(error);
-      });
+        error => {
+          alert(error);
+        });
     }
   }
 }

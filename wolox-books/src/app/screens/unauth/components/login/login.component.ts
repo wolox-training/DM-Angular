@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { patterns } from 'src/app/utils/validators';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService,
+    private authService: AuthService,
     private router: Router
   ) {
     this.buildForm();
@@ -34,11 +35,11 @@ export class LoginComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid) {
-      this.userService.loginUser({
+      this.authService.login({
         email: this.form.get('email').value,
         password: this.form.get('password').value
-      }).subscribe(res => {
-        console.log(res);
+      }).subscribe(() => {
+        this.router.navigate(['home']);
       },
       error => {
         alert(error);
