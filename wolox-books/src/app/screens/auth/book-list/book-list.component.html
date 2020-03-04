@@ -1,0 +1,4 @@
+<div class="books-main" *ngIf="$books | async as books">
+  <mini-card *ngFor="let book of books" [title]="book.title" [publisher]="book.publisher" [imageURL]="book.imageUrl">
+  </mini-card>
+</div>
