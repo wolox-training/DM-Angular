@@ -15,6 +15,7 @@ import { MiniCardComponent } from './components/mini-card/mini-card.component';
 import { BookListComponent } from './screens/auth/book-list/book-list.component';
 import { TokenInterceptorService } from './services/token.interceptor';
 import { ToCamelCaseInterceptor } from './services/to-camel-case.interceptor';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ToCamelCaseInterceptor } from './services/to-camel-case.interceptor';
     NavbarComponent,
     HomeComponent,
     MiniCardComponent,
-    BookListComponent
+    BookListComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

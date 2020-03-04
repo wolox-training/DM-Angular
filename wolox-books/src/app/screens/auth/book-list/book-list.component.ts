@@ -11,6 +11,7 @@ import { Book } from 'src/app/models/book.model';
 export class BookListComponent implements OnInit {
 
   $books: Observable<Book[]>;
+  filterField: string;
 
   constructor(private bookService: BooksService) { }
 

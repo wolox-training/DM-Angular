@@ -1,5 +1,36 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .books-main {
   display: flex;
   flex-wrap: wrap;
   padding: 36px 233px;
+}
+
+.finder-container {
+  background-color: #FFF;
+  border: 2px solid #E8E8E8;
+  border-radius: 5px;
+  height: 50px;
+  margin-top: 35px;
+  padding: 15px;
+  position: relative;
+  width: 646px;
+
+  &::after {
+    content: url(/assets/finder.png);
+    position: absolute;
+    right: 13px;
+    top: 13px;
+  }
+}
+
+.finder {
+  color: #828282;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  width: 100%;
 }
