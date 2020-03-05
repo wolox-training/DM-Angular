@@ -13,7 +13,10 @@ import { TokenInterceptorService } from './services/token.interceptor';
 import { ToCamelCaseInterceptor } from './services/to-camel-case.interceptor';
 import { HomeComponent } from './screens/auth/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CartService } from './services/cart.service';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './books.reducers';
+import { ModalComponent } from './components/modal/modal.component';
+import { ModalService } from './services/modal.service';
 
 @NgModule({
   declarations: [
@@ -23,14 +26,18 @@ import { CartService } from './services/cart.service';
     InputComponent,
     LoginComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({
+      book: reducer
+    })
   ],
   providers: [
     {
@@ -43,7 +50,7 @@ import { CartService } from './services/cart.service';
       useClass: ToCamelCaseInterceptor,
       multi: true
     },
-    CartService
+    ModalService
   ],
   bootstrap: [AppComponent]
 })

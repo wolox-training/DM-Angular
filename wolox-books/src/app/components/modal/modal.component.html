@@ -1,0 +1,12 @@
+<div class="modal" *ngIf="open">
+  <main class="container">
+    <span class="close" (click)="openModal(false)"></span>
+    <header class="header">
+      <h1 class="title">Tu carrito de compras</h1>
+    </header>
+    <div class="row" *ngFor="let book of $books | async; let i = index">
+      <p class="description">{{book.title}} - {{ book.author }}</p>
+      <button class="remove" type="button" (click)="removeBook(i)"></button>
+    </div>
+  </main>
+</div>

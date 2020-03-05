@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { CartService } from 'src/app/services/cart.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,11 +17,12 @@ export class NavbarComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private cartService: CartService
+    private store: Store<AppState>,
+    private modalService: ModalService
   ) { }
 
   ngOnInit() {
-    this.cartService.selectedBooks.subscribe(books => {
+    this.store.select('book').subscribe(books => {
       this.booksLength = books.length;
     });
   }
@@ -27,6 +30,10 @@ export class NavbarComponent implements OnInit {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['login']);
+  }
+
+  openShopery() {
+    this.modalService.openModal(true);
   }
 
 }

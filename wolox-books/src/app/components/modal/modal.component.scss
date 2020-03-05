@@ -1,0 +1,55 @@
+@import '../../../colors.scss';
+
+.modal {
+  align-items: center;
+  background-color: $black-half-opacity;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+}
+
+.container {
+  background-color: $white;
+  border-radius: 15px;
+  height: 600px;
+  padding: 24px;
+  position: relative;
+  width: 900px;
+}
+
+.close::after {
+  content: url(/assets/close.png);
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+.title {
+  font-size: 36px;
+}
+
+.row {
+  border-bottom: 1px solid $silver;
+  // margin: 30px 27px 0;
+  padding: 30px 27px;
+  // padding-bottom: 30px;
+  position: relative;
+  width: 800px;
+}
+
+.description {
+  font-size: 22px;
+}
+
+.remove::after {
+  content: url(/assets/remove.png);
+  cursor: pointer;
+  position: absolute;
+  right: 27px;
+  top: 30px;
+}
